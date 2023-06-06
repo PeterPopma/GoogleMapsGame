@@ -45,11 +45,9 @@ namespace AirplaneGame
 
         [SerializeField] private AudioSource soundEngine;
         [SerializeField] private AudioSource soundMissile;
-        [SerializeField] private AudioSource soundCrash;
         [SerializeField] private AudioSource soundGun;
         [SerializeField] private AudioSource soundSwitchWeapon;
         [SerializeField] private AudioSource soundWind;
-        [SerializeField] private AudioSource soundPowerUp;
 
         [SerializeField] private LayerMask gunfireLayerMask;
 
@@ -287,23 +285,6 @@ namespace AirplaneGame
                         CreateMissile(missile_number);
                     }
                 }
-            }
-        }
-
-        public void AddMissiles()
-        {
-            soundPowerUp.Play();
-            numMissiles += 3;
-            textMissiles.text = numMissiles.ToString();
-        }
-
-        public void AddFuel()
-        {
-            soundPowerUp.Play();
-            amountFuel += 10;
-            if(amountFuel > 100)
-            {
-                amountFuel = 100;
             }
         }
 
@@ -581,7 +562,6 @@ namespace AirplaneGame
             soundEngine.volume = 0f;
 
             Instantiate(vfxCrash, transform.position, Quaternion.identity);
-            soundCrash.Play();
 
             textAirplanes.text = numAirplanes.ToString();
             if (numAirplanes == 0)
