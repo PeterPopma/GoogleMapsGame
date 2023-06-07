@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 namespace AirplaneGame
 {
     public class Player : MonoBehaviour
     {
-        private const float MINIMUM_FLY_SPEED = 30;
+        private const float MINIMUM_FLY_SPEED = 10;
 
         [Header("Rotating speeds")]
         [Range(5f, 500f)]
@@ -523,7 +521,7 @@ namespace AirplaneGame
             {
                 currentSpeed -= speedAcceleration * Time.deltaTime;
             }
-            distanceTravelled += (transform.position - oldPosition).magnitude;
+// optional           distanceTravelled += (transform.position - oldPosition).magnitude;
             speed = (transform.position - oldPosition) / Time.deltaTime;
             textSpeed.text = "Speed: " + ((int)speed.magnitude).ToString();
 
